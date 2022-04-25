@@ -20,9 +20,19 @@ func identifyNonPrimes(ptr *[]int) {
 	}
 }
 
+func remove(slice []int, i int) []int {
+	fmt.Println(slice[i:]) // [7 8 9]
+	fmt.Println(slice[i+1:]) // [8 9]
+	copy(slice[i:], slice[i+1:]) //func copy(dst, src []Type) int
+	fmt.Println(slice[:]) // [5 6 8 9 9]
+	return slice[:len(slice)-1]
+}
+
 func main() {
-	primes := []int{2, 3, 4, 6, 6, 7, 8, 9, 10, 11, 13}
-	fmt.Println(primes)
-	identifyNonPrimes(&primes)
-	fmt.Println(primes)
+	// primes := []int{2, 3, 4, 6, 6, 7, 8, 9, 10, 11, 13}
+	// fmt.Println(primes)
+	// identifyNonPrimes(&primes)
+	// fmt.Println(primes)
+	s := []int{5, 6, 7, 8, 9}
+	fmt.Println(remove(s, 2)) // "[5 6 8 9]"
 }
